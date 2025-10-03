@@ -15,6 +15,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.docs
 *.iws
 *.iml
 *.ipr
@@ -31,3 +32,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Environment files ###
+.env
+*.env
+!.env.example
+
+### Docker ###
+docker-compose.override.yml

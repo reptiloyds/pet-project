@@ -1,3 +1,7 @@
+jwt:
+  issuer: bloghub_app
+  secret: se12dd4f1sg321we
+  lifetime-in-minutes: 60
 server:
   port: 8080
 spring:

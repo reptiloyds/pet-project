@@ -12,20 +12,20 @@ import ru.naumov.bloghub.repository.UserRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    UserDetailsService userDetailsService(UserRepository userRepository) {
-        return new UserDetailsServiceImp(userRepository);
-    }
-
-    @Bean
-    DaoAuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(userDetailsService);
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        return daoAuthenticationProvider;
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//    @Bean
+//    public UserDetailsService userDetailsService(UserRepository userRepository) {
+//        return new UserDetailsServiceImp(userRepository);
+//    }
+//
+//    @Bean
+//    public DaoAuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(userDetailsService);
+//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+//        return daoAuthenticationProvider;
+//    }
 }

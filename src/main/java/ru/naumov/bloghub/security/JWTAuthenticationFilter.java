@@ -25,15 +25,14 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // Пропускаем запросы к регистрации без проверки токена
-        if (request.getRequestURI().equals("/api/reg")) {
+        String requestURI = request.getRequestURI();
+        if (isPublicEndpoint(requestURI)) {
             filterChain.doFilter(request, response);
             return;
         }
 
         Authentication authRequest = authenticationConverter.convert(request);
         if (authRequest == null) {
-            // Если токен отсутствует для защищенных эндпоинтов, возвращаем 401
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "JWT Token is required");
             return;
         }
@@ -51,5 +50,10 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private boolean isPublicEndpoint(String requestURI) {
+        return requestURI.equals("/api/reg") ||
+               requestURI.equals("/error");
     }
 }

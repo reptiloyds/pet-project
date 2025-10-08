@@ -18,7 +18,7 @@ public class JWTAuthenticationProvider implements AuthenticationProvider {
         Assert.isInstanceOf(UsernamePasswordAuthenticationToken.class, authentication);
         String username = this.determineUsername(authentication);
         UserDetails userDetails = detailsService.loadUserByUsername(username);
-        return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
     }
 
     @Override

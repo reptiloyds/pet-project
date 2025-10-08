@@ -3,20 +3,18 @@ package ru.naumov.bloghub.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.naumov.bloghub.model.RegisterDTO;
 import ru.naumov.bloghub.model.User;
-import ru.naumov.bloghub.repository.UserRepository;
 import ru.naumov.bloghub.security.JWTUtil;
 import ru.naumov.bloghub.service.RegistrationService;
 
 import java.time.Instant;
 import java.util.Map;
 
-@Controller
-@RestController("/api/")
+@RestController
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class HomeController {
     private final JWTUtil jwtUtil;

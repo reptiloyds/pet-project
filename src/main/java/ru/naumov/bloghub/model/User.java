@@ -28,7 +28,6 @@ public class User {
     @Email
     private String email;
     @Column(name = "password")
-    @Size(min = 6, max = 20)
     private String password;
     @Column(name = "created_at")
     private Instant createdAt;
